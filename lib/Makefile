@@ -1,5 +1,5 @@
 include ../template.mk
 
-OBJS=memory.o
+OBJS=memory.o string.o stdio.o
 
 all: $(OBJS)

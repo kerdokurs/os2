@@ -1,5 +1,5 @@
-#include "io.h"
-// #include "utils.h"
+#include <io.h>
+#include <os_stdlib.h>
 
 /* The I/O ports */
 #define FB_COMMAND_PORT 0x3D4
@@ -75,29 +75,9 @@ void write(char *buf, uint16_t size)
   }
 }
 
-// void println(string_t *str)
-// {
-//   write(str->buf, str->length);
-//   move_cursor_to(0, current_cursor_y + 1);
-// }
-
-// void clear_screen()
-// {
-//   move_cursor_to(0, 0);
-//   char *buf = malloc(80 * sizeof(char));
-//   memset(buf, 80 * sizeof(char), ' ');
-//   memset(buf + 79 * sizeof(char), sizeof(char), '\0');
-
-//   string_t str = string(buf);
-
-//   uint8_t y = SCREEN_ROWS;
-
-//   while (y--)
-//   {
-//     println(&str);
-//   }
-
-//   free(buf);
-
-//   move_cursor_to(0, 0);
-// }
+void clear_screen()
+{
+  // TODO: Verify that the whole screen is cleared exactly
+  memset(fb, 0, 2 * SCREEN_COLS * SCREEN_ROWS);
+  move_cursor_to(0, 0);
+}

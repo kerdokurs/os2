@@ -1,9 +1,7 @@
 #ifndef INCLUDE_IO_H
 #define INCLUDE_IO_H
 
-#include "os_stdlib.h"
-// #include "stdint.h"
-// #include "string.h"
+#include "os_stdint.h"
 
 /** outb:
  *  Sends the given data to the given I/O port. Defined in io.s
@@ -29,11 +27,6 @@ extern unsigned char inb(unsigned short port);
 extern unsigned char read_scan_code();
 
 void move_cursor_to(uint8_t x, uint8_t y);
-
-/** write:
- * Writes a character buffer to the screen. Buffer needs to end with a 0-byte to end the writing. The max length of the buffer is 256.
- */
-void write(char *buf, uint16_t size);
 
 void clear_screen();
 

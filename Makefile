@@ -30,4 +30,4 @@ bin: main.o
 	@make -C lib
 
 clean:
-	rm -rf *.o kernel.elf os.iso
+	rm -rf **/*.o kernel.elf os.iso

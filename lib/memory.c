@@ -1,4 +1,5 @@
 #include <os_stdlib.h>
+#include <os_stdint.h>
 
 #define MEM_SIZE 2000000
 
@@ -9,7 +10,7 @@ typedef struct mem_block_t
   struct mem_block_t *next;
 } mem_block_t;
 
-static uint8_t _memory[MEM_SIZE];
+static uint32_t _memory[MEM_SIZE];
 static struct mem_block_t *memory = (mem_block_t *)_memory;
 
 static void mem_init()
@@ -62,6 +63,7 @@ void *malloc(const size_t sz)
   }
 
   if ((cur->size) == sz)
+
   {
     cur->free = false;
     return (void *)(++cur);
@@ -83,5 +85,14 @@ void free(void *ptr)
     --cur;
     cur->free = true;
     merge();
+  }
+}
+
+void memset(void *dst, uint32_t c, size_t n)
+{
+  uint32_t *buf = dst;
+  while (n--)
+  {
+    *(buf++) = c;
   }
 }
