@@ -9,8 +9,10 @@ int osmain()
 {
   void *ptr = malloc(1);
   --ptr;
-  char *const hello_world = "Hello, world!\0";
-  write(hello_world, 15);
+  char *const hello_world = malloc(16);
+  hello_world[0] = 'H';
+  hello_world[15] = '\0';
+  write(hello_world, 16);
   // clear_screen();
 
   // const char * const hello_world = "Hello, world!\nWelcome to KerdoOS!\n";
