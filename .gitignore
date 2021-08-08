@@ -1,0 +1,7 @@
+.vscode/
+iso/
+old/
+bochslog.txt
+**/*.o
+os.iso
+**/*.elf
